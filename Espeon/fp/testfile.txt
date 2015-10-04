@@ -1,0 +1,5 @@
+Input
+Swap
+LCon 1
+Add
+Output

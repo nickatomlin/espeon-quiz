@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Microprocessor</title>
+		<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../css/skeleton.css">
+		
+		<style>
+			
+			td{
+				border:1px solid grey;
+				width:10%;
+				border-radius:3px;
+			}
+		
+			.memorybox{
+				margin-top:2%;
+				height:70%; 
+				width:71.666667%"
+			}
+			
+			.sidebox{	
+				margin-top:2%;
+			}
+			
+			.mainframe{
+				height:100%;
+				width:100%;
+			}
+			
+			.one-third.column               { width: 30.6666666667%; }
+			.two-thirds.column              { width: 65.3333333333%; }
+			.one-half.column                { width: 48%; }
+			.four-fifths.column				{ width: 71.666666667%;  }
+			.one-tenth.column				{ width: 8.6777777778%;  }
+			
+		</style>
+		<script type = "text/javascript">
+			var memory = [];
+			window.onload = function () { 
+				//Check the support for the File API support 
+				if (window.File && window.FileReader && window.FileList && window.Blob) {
+					var fileSelected = document.getElementById('txtfiletoread');
+					fileSelected.addEventListener('change', function (e) { 
+						//Set the extension for the file 
+						var fileExtension = /text.*/; 
+						//Get the file object 
+						var fileTobeRead = fileSelected.files[0];
+						//Check of the extensio match 
+						if (fileTobeRead.type.match(fileExtension)) { 
+							//Initialize the FileReader object to read the 2file 
+							var fileReader = new FileReader(); 
+							fileReader.onload = function (e) { 
+								var words = fileReader.result;
+								memory = words.split("\n");
+								loadTable();
+							}
+							fileReader.readAsText(fileTobeRead); 
+						} 
+						else { 
+							alert("Please select text file"); 
+						}
+
+					}, false);
+				}
+				else { 
+					alert("Files are not supported"); 
+				}
+			}
+			
+			function loadTable(){
+				for(i = memory.length; i<100; i++){
+					memory.push("NOOP");
+				}
+				alert(memory);
+				for(x = 0; x<memory.length; x++){
+					document.getElementById(x).innerHTML = memory[x];
+				}
+			}
+		</script>
+	</head>
+<body>
+	<div class = "mainframe">
+		<div class = "row">
+			<!-- make each box individual id box1,box2...etc to 90-->
+			<div class = "memorybox four-fifths column">
+				<h4> Memory </h4>
+				<table>
+					<thead>
+						<tr>
+						  <th>a0</th>
+						  <th>a10</th>
+						  <th>a20</th>
+						  <th>a30</th>
+						  <th>a40</th>
+						  <th>a50</th>
+						  <th>a60</th>
+						  <th>a70</th>
+						  <th>a80</th>
+						  <th>a90</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr class = "row 1">
+							<td id = '0'> </td>
+							<td id = '10'></td>
+							<td id = '20'></td>
+							<td id = '30'></td>
+							<td id = '40'></td>
+							<td id = '50'></td>
+							<td id = '60'></td>
+							<td id = '70'></td>
+							<td id = '80'></td>
+							<td id = '90'></td>
+						</tr>
+						<tr class = "row 2">
+							<td id = '1'></td>
+							<td id = '11'></td>
+							<td id = '21'></td>
+							<td id = '31'></td>
+							<td id = '41'></td>
+							<td id = '51'></td>
+							<td id = '61'></td>
+							<td id = '71'></td>
+							<td id = '81'></td>
+							<td id = '91'></td>
+						</tr>
+						<tr class = "row 3">
+							<td id = '2'></td>
+							<td id = '12'></td>
+							<td id = '22'></td>
+							<td id = '32'></td>
+							<td id = '42'></td>
+							<td id = '52'></td>
+							<td id = '62'></td>
+							<td id = '72'></td>
+							<td id = '82'></td>
+							<td id = '92'></td>
+						</tr>
+						<tr class = "row 4">
+							<td id = '3'></td>
+							<td id = '13'></td>
+							<td id = '23'></td>
+							<td id = '33'></td>
+							<td id = '43'></td>
+							<td id = '53'></td>
+							<td id = '63'></td>
+							<td id = '73'></td>
+							<td id = '83'></td>
+							<td id = '93'></td>
+						</tr>
+						<tr class = "row 5">
+							<td id = '4'></td>
+							<td id = '14'></td>
+							<td id = '24'></td>
+							<td id = '34'></td>
+							<td id = '44'></td>
+							<td id = '54'></td>
+							<td id = '64'></td>
+							<td id = '74'></td>
+							<td id = '84'></td>
+							<td id = '94'></td>
+						</tr>
+						<tr class = "row 6">
+							<td id = '5'></td>
+							<td id = '15'></td>
+							<td id = '25'></td>
+							<td id = '35'></td>
+							<td id = '45'></td>
+							<td id = '55'></td>
+							<td id = '65'></td>
+							<td id = '75'></td>
+							<td id = '85'></td>
+							<td id = '95'></td>
+						</tr>
+						<tr class = "row 7">
+							<td id = '6'></td>
+							<td id = '16'></td>
+							<td id = '26'></td>
+							<td id = '36'></td>
+							<td id = '46'></td>
+							<td id = '56'></td>
+							<td id = '66'></td>
+							<td id = '76'></td>
+							<td id = '86'></td>
+							<td id = '96'></td>
+						</tr>
+						<tr class = "row 8">
+							<td id = '7'></td>
+							<td id = '17'></td>
+							<td id = '27'></td>
+							<td id = '37'></td>
+							<td id = '47'></td>
+							<td id = '57'></td>
+							<td id = '67'></td>
+							<td id = '77'></td>
+							<td id = '87'></td>
+							<td id = '97'></td>
+						</tr>
+						<tr class = "row 9">
+							<td id = '8'></td>
+							<td id = '18'></td>
+							<td id = '28'></td>
+							<td id = '38'></td>
+							<td id = '48'></td>
+							<td id = '58'></td>
+							<td id = '68'></td>
+							<td id = '78'></td>
+							<td id = '88'></td>
+							<td id = '98'></td>
+						</tr>
+						<tr class = "row 10">
+							<td id = '9'></td>
+							<td id = '19'></td>
+							<td id = '29'></td>
+							<td id = '39'></td>
+							<td id = '49'></td>
+							<td id = '59'></td>
+							<td id = '69'></td>
+							<td id = '79'></td>
+							<td id = '89'></td>
+							<td id = '99'></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class = "sidebox one-tenth column">
+				<h5> Inputs </h5>
+				<table style = "width:100%; height: 100%;">
+					 <tbody>
+						<!-- flexible tr and td adding for inputs with javascript -->
+					 </tbody>
+				</table>
+				<!-- create form so you can go input inputs -->
+			</div>
+			<div class = "sidebox one-tenth column">
+				<h5> Outputs </h5>
+				<table style = "width:100%; height: 100%;">
+					 <tbody>
+						<!-- flexible tr and td adding for inputs with javascript -->
+					 </tbody>
+				</table>
+			</div>
+		</div>
+		<div class = "row">
+			Please Select text file of which contents are to be read: 
+			<input type="file" id="txtfiletoread" />
+		</div>
+	</div>
+</body>
+</html>
